@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+    <div class="delete-confirm">
+        <p>Вы уверены, что хотите удалить задачу <strong>"{{ task.title }}"</strong>?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-delete">Да, удалить</button>
+            <a href="{% url 'index' %}" class="btn-cancel">Отмена</a>
+        </form>
+    </div>
+{% endblock %}

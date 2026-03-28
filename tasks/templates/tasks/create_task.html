@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="title">Название</label>
+        <input type="text" name="title" id="title">
+        <br>
+        <label for="descriptions">Описание</label>
+        <textarea name="descriptions" id="descriptions"></textarea>
+        <br>
+        <button type="submit">Создать</button>
+    </form>
+    <a href="{% url 'index' %}">Назад</a>
+{% endblock %}
