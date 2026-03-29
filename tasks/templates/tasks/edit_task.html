@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'tasks/base.html' %}
 
 {% block content %}
     <h1>{{ title }}</h1>
@@ -6,13 +6,13 @@
     <form method="POST">
         {% csrf_token %}
         <label for="title">Название</label>
-        <input type="text" name="title" id="title" value="{{ task.title }}">
+        <input type="text" name="title" id="title" value="{{ task.title }}" required>
         <br>
         <label for="description">Описание</label>
         <textarea name="description" id="description">{{ task.description }}</textarea>
         <br>
         <label>
-            <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %}>
+            <input type="checkbox" name="completed" {% if task.complete %}checked{% endif %}>
             Выполнено
         </label>
         <br>
